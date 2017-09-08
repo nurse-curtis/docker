@@ -147,6 +147,6 @@
     - name: chown dir
       file:
         path=/var/www/wallabag
-        recurse=yes
+        recurse=no
         owner=nobody
         group=nobody
