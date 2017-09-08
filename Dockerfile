@@ -54,7 +54,9 @@ COPY root /
 
 RUN set -ex \
  && cd /var/www/wallabag \
- && SYMFONY_ENV=prod composer install --no-dev -o --prefer-dist
+ && SYMFONY_ENV=prod composer install --no-dev -o --prefer-dist \
+ && chown -R nobody:nobody /var/www/wallabag \
+ && ln -sf /tmp/wallabag /var/www/wallabag/web/assets/images
 
 EXPOSE 80
 ENTRYPOINT ["/entrypoint.sh"]
